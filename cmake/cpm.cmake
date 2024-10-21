@@ -1,10 +1,9 @@
-set(CPM_DOWNLOAD_VERSION 0.38.2)
+set(CPM_DOWNLOAD_VERSION 0.40.2)
 
-set(CPM_DOWNLOAD_LOCATION "${CPM_SOURCE_CACHE}/cpm/CPM_${CPM_DOWNLOAD_VERSION}.cmake")
+set(CPM_DOWNLOAD_LOCATION "${LIB_DIR}/cpm/CPM_${CPM_DOWNLOAD_VERSION}.cmake")
 
 # Expand relative path. This is important if the provided path contains a tilde (~)
 get_filename_component(CPM_DOWNLOAD_LOCATION ${CPM_DOWNLOAD_LOCATION} ABSOLUTE)
-
 
 function(download_cpm)
   message(STATUS "Downloading CPM.cmake to ${CPM_DOWNLOAD_LOCATION}")

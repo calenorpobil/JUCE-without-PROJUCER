@@ -10,7 +10,7 @@ juce_add_plugin(${PROJECT_NAME}
 	NEEDS_MIDI_OUTPUT FALSE
 	PLUGIN_MANUFACTURER_CODE MRLT
 	PLUGIN_CODE AUPL
-	FORMATS ANDROID
+	FORMATS ANDROID Standalone
 	PRODUCT_NAME "YourPluginName"
 )
 
@@ -31,9 +31,10 @@ target_link_libraries(${PROJECT_NAME}
 	PRIVATE
 		juce::juce_audio_utils
 	PUBLIC
-		juce::recommended_config_flags
-		juce::recommended_lto_flags
-		juce::recommended_warning_flags
+		juce::juce_recommended_config_flags
+		juce::juce_recommended_lto_flags
+		juce::juce_recommended_warning_flags
+
 )
 
 target_compile_definitions(${PROJECT_NAME}

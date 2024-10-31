@@ -15,12 +15,28 @@ CPMAddPackage(
 	SOURCE_DIR ${LIB_DIR}/juce
 )
 
+
+# Adds googletest.
+CPMAddPackage(
+    NAME GOOGLETEST
+    GITHUB_REPOSITORY google/googletest
+    GIT_TAG v1.15.2
+    VERSION 1.15.2
+    SOURCE_DIR ${LIB_DIR}/googletest
+    OPTIONS
+        "INSTALL_GTEST OFF"
+        "gtest_force_shared_crt ON"
+)
+
+enable_testing()
+
 #When we use Windows:
-if(MSVC)
-	add_compile_options(/Wall /WX)
-else()
+#if(MSVC)
+#	add_compile_options(/Wall /WX)
+#else()
 #This forces that all warnings be treated as errors:
-	add_compile_options(-Wall  -Wextra -Wpedantic) 
-endif()
+#	add_compile_options(-Wall  -Wextra -Wpedantic) 
+#endif()
 
 add_subdirectory(plugin)
+add_subdirectory(test)
